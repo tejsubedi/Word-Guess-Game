@@ -1,72 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Word-Choice-Fun-Game</title>
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet'>
-    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <link rel="stylesheet" href="/assets/css/reset.css">
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
 </head>
 
 <body>
-    <div class="jumbotron jumbotron-fluid text-center">
-        <div class="container">
-            <h1 class="display-4">Word Choice Fun Game</h1>
-            <p class="lead">Press Any Key to begin the game </p>
-        </div>
-    </div>
     <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="border border-primary">
-                    <img src="" alt="" class="rounded-sm">
+        <div class="row bg-white text-success header">
+            <div class=" justify-content-center col-md-12 text-center mb-2">
+                <h1 class="bg-info text-white p-3 ml-0 mt-1 mb-0">
+                    Word-Choice-Fun-Game
+                </h1>
+            </div>
+        </div>
+        <div class=" container navbutton">
+            <h1 class="bg-success text-center">
+                Press
+                <span><button class=" btn btn-lg bg-info text-center text-white">
+                        Click Me
+                    </button></span>
+                Button to start the game
+            </h1>
+        </div>
+        <div class="container mt-0 bg-secondary main-button">
+            <div class="row bg-success">
+                <div class="col-sm-4">
+                    <div class="border bg-secondary">
+                        <img src="./assets/images/myimage.png" alt="" class="img-fluid img-thumbnail" />
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="row-sm-2 text-center p-4 mb-4 border bg-primary">
+                        <h1>Total number of choices</h1>
+                        <button id="countnumber"></button>
+                    </div>
+                    <div class="row-sm-2 text-center p-4 mt-4 border bg-info">
+                        <h1>Word to Guess</h1>
+                        <div class="underscore"></div>
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-8">
-                <div class="row">
-                    <h1>Total number of choices</h1>
-                    <button>count</button>
+            <div class="row text-center">
+                <div class="col-sm-6 mt-2 ">
+                    <div class="row-sm-2 border bg-success p-2">
+                        <h1>Your Choices</h1>
+                        <input type="text" name="" id="" />
+                    </div>
                 </div>
-                <div class="row-sm-2">
-                    <h1>Word to Guess</h1>
-                    <input type="text">
+                <div class="col-sm-6 mt-2">
+                    <div class="row-sm-2 text-white border bg-dark p-2">
+                        <h1>Wrong Word</h1>
+                        <input type="text" />
+                    </div>
+                </div>
+            </div>
+            <div class="row text-center pt-4 mb-4">
+                <div class="col-md-6 mb-4">
+                    <button class="bg-success">You Win the Game</button>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <button class="bg-danger">You Loos the Game</button>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-4">
-
-            </div>
-            <div class="col-sm-8">
-                <div class="row-sm-2">
-                    <h1>Your Choices</h1>
-                    <input type="text" name="" id="">
-                </div>
-                <div class="row-sm-2">
-                    <h1>Wrong word choices</h1>
-                    <input type="text">
+        <div class="container sticky-top">
+            <div class="row bg-secondary">
+                <div class="col footer text-center pt-4">
+                    <p>Tej Subedi, Copyright &copy; 2019</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="col-md-6">
-            <button>You Win the Game</button>
-        </div>
-        <div class="col-md-6">
-            <button>You Loos the Game</button>
-        </div>
-    </div>
-    <div class="jumbotron text-center" style="margin-bottom:0">
-        <p>Footer</p>
-    </div>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="./assets/javascript/game.js"></script>
 </body>
 
 </html>
