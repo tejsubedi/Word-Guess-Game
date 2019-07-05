@@ -1,7 +1,9 @@
+// Jquery for starting the page
+
 $(document).ready(() => {
     const $mainButton = $('.main-button');
     const $navButton = $('.navbutton');
-    
+
     $mainButton.hide();
 
     $navButton.on('click',() => {
@@ -13,12 +15,14 @@ $(document).ready(() => {
 
 //Create an array of words
   const myAnimals = ['Tiger', 'Elephant','Dog','Horse', 'Zebra'];
+ 
 //choose words randomly
   let randumNum = Math.floor(Math.random() * myAnimals.length)
   let rightWord = [];
   let wrongWord = [];
   let chooseAnimals = myAnimals[randumNum];
   let underScore = [];
+  let maxCount = 10;
   //Testing
   console.log(randumNum);
 
@@ -28,6 +32,9 @@ $(document).ready(() => {
   let domUnderScore = document.getElementsByClassName('underscore');
   let domRightGuess = document.getElementsByClassName('rightchoice');
   let domWrongGuess = document.getElementsByClassName('wronguess');
+  let domCountNumber = document.getElementsByClassName('countnumber');
+  domCountNumber.innerHTML = "maxCount";
+
   
   
   console.log(chooseAnimals);
