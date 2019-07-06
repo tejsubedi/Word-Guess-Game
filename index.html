@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,6 +23,7 @@
                 </h1>
             </div>
         </div>
+        <!-- Beginning of the programe with display:none button Jquery added -->
         <div class=" container navbutton">
             <h1 class="bg-success text-center">
                 Press
@@ -31,6 +33,25 @@
                 Button to start the game
             </h1>
         </div>
+        <!-- If User win the game will alert the message otherwise display none -->
+        <div class="container mt-0 bg-secondary main-button win-loose">
+            <div class="row text-center pt-4 mb-4">
+                <div class="col-md-12 mb-4 ">
+                    <button id="winner" class="btn btn-success btn-md ">
+                        <h1><span class="fa fa-question text-white">You win !!!</span></h1>
+                    </button>
+                </div>
+            </div>
+            <div class="row text-center pt-4 mb-4">
+                <div class="col-md-12 mb-4">
+                    <button id="looser" class="btn btn-danger btn-md ">
+                        <h1><span class="fa fa-question text-white">You loose (:</span></h1>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content display ground -->
         <div class="container mt-0 bg-secondary main-button">
             <div class="row bg-success">
                 <div class="col-sm-4">
@@ -38,51 +59,86 @@
                         <img src="./assets/images/animal.png" alt="" class="img-fluid img-thumbnail" />
                     </div>
                 </div>
-                <div class="col-sm-8">
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-6">
                     <div class="row-sm-2 text-center p-4 mb-4 border bg-primary">
-                        <h1>Maximum number of choices</h1>
-                        <button id="countnumber"></button>
+                        <h1>Max num of choice</h1>
+                        <div class="row-sm-2 text-center p-3 mb-4 border bg-dark">
+                            <button id="countnumber" class="btn btn-secondary btn-md ">
+                                <h1><span class="fa fa-question text-white"></span></h1>
+                            </button>
+                        </div>
                     </div>
                     <div class="row-sm-2 text-center p-4 mt-4 border bg-info">
                         <h1>Word to Guess</h1>
-                        <div class="underscore text-white m-1"></div>
+                        <div id="underscore" class="row-sm-2 text-center p-4 mt-4 border bg-warning">
+                            <div class="text-white m-1"></div>
+                        </div>
                     </div>
                 </div>
+                <div class="col-sm-1">
+                </div>
+
+            </div>
+            <div class="row text-center">
+
+                <div class="col-sm-4 mt-2 ">
+                    <div class="row-sm-2 border bg-success p-2">
+                        <h1>Your Score</h1>
+                        <div class="rightchoice text-white m-1">
+                            <button id="countnumber" class="btn btn-secondary btn-md ">
+                                <h1><span class="fa fa-question text-white">15</span></h1>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+
+                </div>
+                <div class="col-sm-4 mt-2">
+                    <div class="row-sm-2 text-white border bg-dark p-2">
+                        <h1>Computer Score</h1>
+                        <div class="wronguess text-white m-1">
+                            <button id="countnumber" class="btn btn-secondary btn-md ">
+                                <h1><span class="fa fa-question text-white">15</span></h1>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
             <div class="row text-center">
                 <div class="col-sm-6 mt-2 ">
                     <div class="row-sm-2 border bg-success p-2">
                         <h1>Right Choices</h1>
-                        <div class="rightchoice text-white m-1"></div>
+                        <div class="rightchoice text-white m-2 p-2">----</div>
                     </div>
                 </div>
                 <div class="col-sm-6 mt-2">
                     <div class="row-sm-2 text-white border bg-dark p-2">
                         <h1>Wrong Guess</h1>
-                        <div class="wronguess text-white m-1"></div>
+                        <div class="wronguess text-white m-2 p-2">----</div>
                     </div>
                 </div>
             </div>
-            <div class="row text-center pt-4 mb-4">
-                <div class="col-md-6 mb-4">
-                    <button class="bg-success">You Win the Game</button>
-                </div>
-                <div class="col-md-6 mb-4">
-                    <button class="bg-danger">You Loos the Game</button>
-                </div>
-            </div>
         </div>
+
+
         <div class="container sticky-top">
-            <div class="row bg-secondary">
+            <div class="row bg-info">
                 <div class="col footer text-center pt-4">
                     <p>Tej Subedi, Copyright &copy; 2019</p>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="./assets/javascript/game.js"></script>
+
 </body>
 
 </html>
