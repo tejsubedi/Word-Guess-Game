@@ -11,7 +11,7 @@ $(document).ready(() => {
     $navButton.on('click', () => {
         $mainButton.show();
         $navButton.hide();
-        $winLoose.hide();
+        //$winLoose.hide();
     })
 
 })
@@ -27,6 +27,7 @@ let userGuesses = [];
 let randWord ;
 let yourScore = 0;
 let computerScore = 0;
+let numOfAttempts = 4;
 
 
 function startGame(){
@@ -44,14 +45,17 @@ function startGame(){
     document.getElementById('yourscore').textContent = yourScore;
     document.getElementById('computerscore').textContent = computerScore;
 
-     //reset
-     wrongLetter = [];
-     guessesLeft;
-     yourScore;
-     computerScore;
+     
 
 }
-
+function reset(){
+    //reset
+    wrongLetter = [];
+    guessesLeft;
+    yourScore;
+    computerScore;
+}
+/*
 document.addEventListener('keypress', (event) => {
     let keyWord = String.fromCharCode(event.keyCode).toLowerCase();
     //  userGuesses.push(keyWord);
@@ -93,8 +97,9 @@ document.addEventListener('keypress', (event) => {
     // }
 
 })
+*/
 
-startGame();
+//startGame();
 
 /*
 //Create an array of words
@@ -172,45 +177,57 @@ console.log(generateUnderscore());
 
 
 
-// function winLose(){
-//     if(winCounter === randWord.length){
-//         alert('Winner');
-//         startGame();
+function winLose(){
+    if(winCounter === randWord.length){
+        document.getElementById('winner').innerHTML = "You win !!!";
+        //alert('Winner');
+        yourScore++;
+        document.getElementById('yourscore').innerHTML = yourScore;
+       // startGame(reset());
 
-//     }else if(guessesLeft === 0){
-//         alert('Losser');
-//         startGame();
-//     }
-// }
+    }else if(guessesLeft === 0){
+        document.getElementById('looser').innerHTML = "You loose (:";
+        computerScore++;
+        document.getElementById('computerscore').innerHTML = computerScore;
+        //alert('Losser');
+       // startGame(reset());
+    }
+}
     
 //user Guesses
 
-    // document.onkeypress = function(event){
-    //     userGuesses = event.key.toLowerCase();
-    //     if(randWord === userGuesses && randWord.indexOf(userGuesses) > -1){
-    //         for(let i = 0; i <randWord.length; i++){
-    //             if(randWord[i] === userGuesses){
-    //                 underScore[i] =userGuesses;
-    //                 //console.log(underScore);
-    //                 document.getElementById('rightchoice').textContent = underScore.join(" ");
-    //                 winCounter++;
-    //                 winLose();
-    //             }
-    //         }
+    document.onkeypress = function(event){
+        userGuesses = event.key.toLowerCase();
+        if(randWord.indexOf(userGuesses) > -1){
+            for(let i = 0; i <randWord.length; i++){
+                if(randWord[i] === userGuesses){
+                    underScore[i] =userGuesses;
+                    console.log(underScore);
+                    document.getElementById('underscore').textContent = underScore.join(" ");
+                    document.getElementById('rightchoice').textContent = underScore.join(" ");
+                    winCounter++;
+                    winLose();
+                }
+                
+            }
             
-    //     }else{
-    //         wrongLetter.push(userGuesses);
-    //         document.getElementById('wrongchoice').textContent = wrongLetter.join(" ");
-    //         guessesLeft--;
-    //         //console.log(wrongLetter);
-    //         winLose();
+        }else{
+            wrongLetter.push(userGuesses);
+            if(guessesLeft != 0){
+                guessesLeft--;
+            document.getElementById('countnumber').textContent = guessesLeft;
+            }
+        
+            document.getElementById('wrongchoice').textContent = wrongLetter.join(" ");
+            //console.log(wrongLetter);
+            winLose();
             
-    //     }
-    // }
+        }
+    }
 
     
 
-
+startGame();
 
 
 
