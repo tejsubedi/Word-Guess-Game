@@ -1,20 +1,100 @@
 // Jquery for starting the page
 
-// $(document).ready(() => {
-//     const $mainButton = $('.main-button');
-//     const $navButton = $('.navbutton');
-//     const $winLoose = $('.win-loose');
+$(document).ready(() => {
+    const $mainButton = $('.main-button');
+    const $navButton = $('.navbutton');
+    const $winLoose = $('.win-loose');
 
-//     $mainButton.hide();
+    $mainButton.hide();
     
 
-//     $navButton.on('click', () => {
-//         $mainButton.show();
-//         $navButton.hide();
-//         $winLoose.hide();
-//     })
+    $navButton.on('click', () => {
+        $mainButton.show();
+        $navButton.hide();
+        $winLoose.hide();
+    })
 
-// })
+})
+
+
+const myAnimals = ['Tiger', 'Elephant', 'Dog', 'Horse', 'Zebra','Rhinoceros','Deer', 'Buffalo', 'Ziraf','Lion'];
+let winCounter = 0;
+let loss = 0;
+let wrongLetter = [];
+let guessesLeft = 9;
+let underScore = [];
+let userGuesses = [];
+let randWord ;
+let yourScore = 0;
+let computerScore = 0;
+
+
+function startGame(){
+    randWord = myAnimals[Math.floor(Math.random() * myAnimals.length)];
+    randWord = randWord.toLowerCase();
+
+    for(let i= 0; i <randWord.length; i++){
+        underScore.push('_');
+    }
+    console.log(randWord);
+    document.getElementById('underscore').textContent = underScore.join(" ");
+
+    //HTML 
+    document.getElementById('countnumber').textContent = guessesLeft;
+    document.getElementById('yourscore').textContent = yourScore;
+    document.getElementById('computerscore').textContent = computerScore;
+
+     //reset
+     wrongLetter = [];
+     guessesLeft;
+     yourScore;
+     computerScore;
+
+}
+
+document.addEventListener('keypress', (event) => {
+    let keyWord = String.fromCharCode(event.keyCode).toLowerCase();
+    //  userGuesses.push(keyWord);
+    // console.log(userGuesses);
+    //  document.getElementById('underscore').textContent = userGuesses.join(" ");
+    // console.log(userGuesses);
+
+    if(randWord.indexOf(userGuesses) > -1){
+        for(let i=0; i <randWord.length; i++){
+            if(randWord[i] === userGuesses){
+                underScore[i] = userGuesses;
+                //console.log(underScore);
+            }
+        }
+    }
+
+    //if user guess is right
+    // if (randWord.indexOf(keyWord) > -1) { 
+    //     //replace the underscore with right keyword
+    //     underScore[randWord.indexOf(keyWord)] = keyWord;
+    //     domUnderScore[0].innerHTML = underScore.join(' ');
+    //     domRightGuess[0].innerHTML = rightWord;
+
+    //     //add to right words array
+    //     rightWord.push(keyWord);
+
+    //     //Checks to see if user word matches guesses
+    //     if (underScore.concat(keyWord) === chooseAnimals) {
+    //         domWinner.innerHTML = "You win !!!";
+    //     };
+
+    //     console.log(underScore);
+    // } else {
+    //     wrongWord.push(keyWord);
+    //     domWrongGuess[0].innerHTML = wrongWord;
+    //     domCountNumber.innerHTML = maxCount;
+    //     maxCount--;
+    //     console.log(wrongWord);
+    // }
+
+})
+
+startGame();
 
 /*
 //Create an array of words
@@ -90,72 +170,45 @@ console.log(generateUnderscore());
 */
 
 
-const myAnimals = ['Tiger', 'Elephant', 'Dog', 'Horse', 'Zebra','Rhinoceros','Deer', 'Buffalo', 'Ziraf','Lion'];
-let winCounter = 0;
-let loss = 0;
-let wrongLetter = [];
-let guessesLeft = 9;
-let underScore = [];
-let userGuesses = [];
-let randWord ;
 
 
-function startGame(){
-    randWord = myAnimals[Math.floor(Math.random() * myAnimals.length)];
+// function winLose(){
+//     if(winCounter === randWord.length){
+//         alert('Winner');
+//         startGame();
 
-    for(let i= 0; i <randWord.length; i++){
-        underScore.push('_');
-    }
-    console.log(randWord);
-    document.getElementById('underscore').textContent = underScore.join(" ");
-
-    //reset
-    wrongLetter = [];
-    guessesLeft = 10;
-
-    //HTML 
-    document.getElementById('countnumber').textContent = guessesLeft;
-
-}
-
-function winLose(){
-    if(winCounter === randWord.length){
-        alert('Winner');
-        startGame();
-
-    }else if(guessesLeft === 0){
-        alert('Losser');
-        startGame();
-    }
-}
+//     }else if(guessesLeft === 0){
+//         alert('Losser');
+//         startGame();
+//     }
+// }
     
 //user Guesses
-    document.onkeyup = function(event){
-        userGuesses = event.key;
-        if(randWord.indexOf(userGuesses) > -1){
-            for(let i = 0; i <randWord.length; i++){
-                if(randWord[i] === userGuesses){
-                    underScore[i] =userGuesses;
-                    console.log(underScore);
-                    winCounter++;
-                    winLose();
-                }
-            }
+
+    // document.onkeypress = function(event){
+    //     userGuesses = event.key.toLowerCase();
+    //     if(randWord === userGuesses && randWord.indexOf(userGuesses) > -1){
+    //         for(let i = 0; i <randWord.length; i++){
+    //             if(randWord[i] === userGuesses){
+    //                 underScore[i] =userGuesses;
+    //                 //console.log(underScore);
+    //                 document.getElementById('rightchoice').textContent = underScore.join(" ");
+    //                 winCounter++;
+    //                 winLose();
+    //             }
+    //         }
             
-        }else{
-            wrongLetter.push(userGuesses);
-            guessesLeft--;
-            console.log(wrongLetter);
-            winLose();
+    //     }else{
+    //         wrongLetter.push(userGuesses);
+    //         document.getElementById('wrongchoice').textContent = wrongLetter.join(" ");
+    //         guessesLeft--;
+    //         //console.log(wrongLetter);
+    //         winLose();
             
-        }
+    //     }
+    // }
 
-        
-    }
-
-
-
-startGame();
+    
 
 
 
