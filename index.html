@@ -27,7 +27,7 @@
         <div class=" container navbutton">
             <h1 class="bg-success text-center">
                 Press
-                <span><button class=" btn btn-lg bg-info text-center text-white">
+                <span><button id ="clickMe" class=" btn btn-lg bg-info text-center text-white">
                         Click Me
                     </button></span>
                 Button to start the game
@@ -36,11 +36,7 @@
         <!-- If User win the game will alert the message otherwise display none -->
         <div class="container mt-0 bg-secondary main-button win-loose">
             <div class="row text-center pt-4 mb-4">
-                <div class="col-md-12 mb-4 ">
-                    <button id="winner" class="btn btn-success btn-md ">
-                        <h1><span class="fa fa-question text-white"></span></h1>
-                    </button>
-                </div>
+
             </div>
             <div class="row text-center pt-4 mb-4">
                 <div class="col-md-12 mb-4">
@@ -55,9 +51,23 @@
         <div class="container mt-0 bg-secondary main-button">
             <div class="row bg-success">
                 <div class="col-sm-4">
-                    <div class="border bg-secondary">
-                        <img src="./assets/images/animal.png" alt="" class="img-fluid img-thumbnail" />
+                    <div class="row-sm-2">
+                        <div class="border bg-secondary">
+                            <img src="./assets/images/animal.png" alt="" class="img-fluid img-thumbnail" />
+                        </div>
                     </div>
+                    <div class="row-sm-2">
+                        <img id="myImg" src="" alt="" class="img-fluid img-thumbnail" />
+                        <div class="col-md-12 mb-4 ">
+
+                            <button id="winner" class="btn btn-success btn-md ">
+                                <h1><span class="fa fa-question text-white"></span></h1>
+                            </button>
+                        </div>
+
+
+                    </div>
+
                 </div>
                 <div class="col-sm-1">
                 </div>
@@ -80,7 +90,7 @@
                 <div class="col-sm-1">
                 </div>
             </div>
-            
+
             <div class="row text-center">
 
                 <div class="col-sm-4 mt-2 ">
@@ -111,15 +121,15 @@
             </div>
             <div class="row text-center">
                 <div class="col-sm-6 mt-2 ">
-                    <div  class="row-sm-2 border bg-success p-2">
+                    <div class="row-sm-2 border bg-success p-2">
                         <h1>Right Choices</h1>
-                        <div id ="rightchoice" class="text-white m-2 p-2"></div>
+                        <div id="rightchoice" class="text-white m-2 p-2"></div>
                     </div>
                 </div>
                 <div class="col-sm-6 mt-2">
                     <div class="row-sm-2 text-white border bg-dark p-2">
                         <h1>Wrong Guess</h1>
-                        <div id ="wrongchoice" class=" text-white m-2 p-2"></div>
+                        <div id="wrongchoice" class=" text-white m-2 p-2"></div>
                     </div>
                 </div>
             </div>
