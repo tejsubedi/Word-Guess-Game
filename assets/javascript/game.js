@@ -1,19 +1,3 @@
-// Jquery for starting the page
-
-// $(document).ready(() => {
-//     const $mainButton = $('.main-button');
-//     const $navButton = $('.navbutton');
-//     const $winLoose = $('.win-loose');
-
-//     $mainButton.hide();
-
-
-//     $navButton.on('click', () => {
-//         $mainButton.show();
-//         $navButton.hide();
-//         //$winLoose.hide();  
-//     })
-// })
 
 const myAnimals = [{ name: "Tiger", image: "assets/images/mytiger.jpeg" },
 { name: "Elephant", image: "assets/images/myElephant.jpg" },
@@ -37,7 +21,7 @@ let randWord;
 let yourScore = 0;
 let computerScore = 0;
 let numOfAttempts = 4;
-let rightLetter = [];
+let rightWord = [];
 let randomImage;
 let randNum;
 
@@ -49,27 +33,22 @@ function startGame() {
     randomImage = myAnimals[randNum].image;
     randWord = randWord.toLowerCase();
     console.log(randWord);
-
     for (let i = 0; i < randWord.length; i++) {
         underScore.push('_');
     }
     document.getElementById('underscore').textContent = underScore.join(" ");
-
-
     //HTML 
     document.getElementById('countnumber').textContent = guessesLeft;
     document.getElementById('yourscore').textContent = yourScore;
-    let clickMe = document.getElementById('clickMe');
-    clickMe.addEventListener('click', function () {
-        location.reload(true);
-    });
-
 
 }
 
-//startGame();
 
-//wincounter
+let clickMe = document.getElementById('clickMe');
+clickMe.addEventListener('click', function () {
+    location.reload(true);
+});
+
 
 function winLose() {
     if (winCounter === randWord.length) {
@@ -80,45 +59,34 @@ function winLose() {
 
     } else if (guessesLeft <= 0) {
         document.getElementById('looser').innerHTML = "You loose (:";
-        ++computerScore;
-        document.getElementById('computerscore').innerHTML = computerScore;
 
     }
 }
 
-// let clickMe = document.getElementById('clickMe');
-// clickMe.addEventListener('click', function(){
-//     location.reload(true);
-// });
-
 
 //user Guesses
-
 document.onkeypress = function (event) {
-    // if (underscore.join("") == randWord) {
-    //     return false;
-    //   }    
     userGuesses = event.key.toLowerCase();
+    console.log(userGuesses);
     if (randWord.indexOf(userGuesses) > -1) {
         for (let i = 0; i < randWord.length; i++) {
             if (randWord[i] === userGuesses) {
                 underScore[i] = userGuesses;
-                //console.log(userGuesses);
                 document.getElementById('underscore').textContent = underScore.join(" ");
                 document.getElementById('rightchoice').textContent = underScore.join(" ");
+
                 winLose();
-               ++winCounter;
+                ++winCounter;
             }
 
         }
 
     } else {
         wrongLetter.push(userGuesses);
-
         if (guessesLeft >= 0) {
-
-            document.getElementById('countnumber').textContent = guessesLeft;
             guessesLeft--;
+            document.getElementById('countnumber').textContent = guessesLeft;
+
         }
         document.getElementById('wrongchoice').textContent = wrongLetter.join(" ");
         winLose();
@@ -126,9 +94,3 @@ document.onkeypress = function (event) {
 }
 
 startGame();
-
-
-
-
-
-
