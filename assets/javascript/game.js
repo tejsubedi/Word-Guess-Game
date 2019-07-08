@@ -1,5 +1,6 @@
 
-const myAnimals = [{ name: "Tiger", image: "assets/images/mytiger.jpeg" },
+const myAnimals = [
+{ name: "Tiger", image: "assets/images/mytiger.jpeg" },
 { name: "Elephant", image: "assets/images/myElephant.jpg" },
 { name: "Dog", image: "assets/images/myDog.jpeg" },
 { name: "Horse", image: "assets/images/myHorse.jpeg" },
@@ -34,9 +35,9 @@ function startGame() {
     for (let i = 0; i < randWord.length; i++) {
         underScore.push('_');
     }
-
-    document.getElementById('underscore').textContent = underScore.join(" ");
+  
     //HTML 
+    document.getElementById('underscore').textContent = underScore.join(" ");
     document.getElementById('countnumber').textContent = guessesLeft;
     document.getElementById('yourscore').textContent = yourScore;
 
