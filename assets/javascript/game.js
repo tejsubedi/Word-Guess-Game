@@ -79,18 +79,24 @@ document.onkeypress = function (event) {
                 document.getElementById('rightchoice').textContent = underScore.join(" ");
                 winCounter++;
             }
+            winLose();
 
         }
     } else {
         wrongLetter.push(userGuesses);
-        console.log(wrongLetter);
+        
+            console.log(wrongLetter);
+        
+        
         if (guessesLeft >= 0) {
             guessesLeft--;
             document.getElementById('countnumber').textContent = guessesLeft;
         }
+        document.getElementById('wrongchoice').textContent = wrongLetter.join(" ");
+        winLose();
     }
-    document.getElementById('wrongchoice').textContent = wrongLetter.join(" ");
-    winLose();
+    
+    
 }
 
 
