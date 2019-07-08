@@ -12,7 +12,6 @@ const myAnimals = [{ name: "Tiger", image: "assets/images/mytiger.jpeg" },
 ]
 
 let winCounter = 0;
-let loss = 0;
 let wrongLetter = [];
 let guessesLeft = 9;
 let underScore = [];
@@ -26,7 +25,6 @@ let randomImage;
 let randNum;
 
 
-
 function startGame() {
     randNum = Math.floor(Math.random() * myAnimals.length);
     randWord = myAnimals[randNum].name;
@@ -36,10 +34,12 @@ function startGame() {
     for (let i = 0; i < randWord.length; i++) {
         underScore.push('_');
     }
+
     document.getElementById('underscore').textContent = underScore.join(" ");
     //HTML 
     document.getElementById('countnumber').textContent = guessesLeft;
     document.getElementById('yourscore').textContent = yourScore;
+
 
 }
 
@@ -48,7 +48,6 @@ let clickMe = document.getElementById('clickMe');
 clickMe.addEventListener('click', function () {
     location.reload(true);
 });
-
 
 function winLose() {
     if (winCounter === randWord.length) {
@@ -64,33 +63,35 @@ function winLose() {
 }
 
 
+
 //user Guesses
+
 document.onkeypress = function (event) {
     userGuesses = event.key.toLowerCase();
-    console.log(userGuesses);
+
     if (randWord.indexOf(userGuesses) > -1) {
+
         for (let i = 0; i < randWord.length; i++) {
             if (randWord[i] === userGuesses) {
-                underScore[i] = userGuesses;
+                 underScore[i] = userGuesses;
                 document.getElementById('underscore').textContent = underScore.join(" ");
                 document.getElementById('rightchoice').textContent = underScore.join(" ");
-
-                winLose();
-                ++winCounter;
+                winCounter++;
             }
 
         }
-
     } else {
         wrongLetter.push(userGuesses);
+        console.log(wrongLetter);
         if (guessesLeft >= 0) {
             guessesLeft--;
             document.getElementById('countnumber').textContent = guessesLeft;
-
         }
-        document.getElementById('wrongchoice').textContent = wrongLetter.join(" ");
-        winLose();
     }
+    document.getElementById('wrongchoice').textContent = wrongLetter.join(" ");
+    winLose();
 }
+
+
 
 startGame();

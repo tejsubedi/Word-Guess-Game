@@ -42,14 +42,19 @@
                     <div class="row-sm-2">
                         <div class="border bg-secondary">
                             <img id="myImg" src="./assets/images/animal.png" alt="" class="img-fluid img-thumbnail" />
-                            <button id="winner" class="btn btn-primary btn-md ">
+                            <button id="winner" id ="audio" class="btn btn-primary btn-md ">
                                 <h1><span class="fa fa-question text-white"></span></h1>
                             </button>
-                            <button id="looser" class="btn btn-danger btn-md ">
+                            
+                            <button id="looser" id ="sorry" class="btn btn-danger btn-md ">
                                 <h1><span class="fa fa-question text-white"></span></h1>
                             </button>
                         </div>
                     </div>
+                    <div class="row-sm-2 text-white text-center border bg-dark p-2 mt-5">
+                            <h5>Letter You choosed</h5>
+                            <div id="letter-choosed" class=" text-white m-2 p-2"></div>
+                        </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="row-sm-2 text-center p-4 mb-4 border bg-primary">
@@ -80,44 +85,16 @@
                 </div>
             </div>
 
-            <!-- <div class="row text-center">
-
-                <div class="col-sm-4 mt-2 ">
-                    <div class="row-sm-2 border bg-success p-2">
-                        <h1>Your Score</h1>
-                        <div class="text-white m-1">
-                            <button id="yourscore" class="btn btn-secondary btn-md ">
-                                <h1><span class="fa fa-question text-white"></span></h1>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4 mt-2">
-
-                </div>
-                <div class="col-sm-4 mt-2">
-                    <div class="row-sm-2 text-white border bg-dark p-2">
-                        <h1>Computer Score</h1>
-                        <div class="text-white m-1">
-                            <button id="computerscore" class="btn btn-secondary btn-md ">
-                                <h1><span class="fa fa-question text-white"></span></h1>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div> -->
             <div class="row text-center">
                 <div class="col-sm-6 mt-2 ">
-                    <div class="row-sm-2 border bg-success p-2">
-                        <h1>Right Choices</h1>
+                    <div class="row-sm-2 text-white border bg-success p-2">
+                        <h3>Right Choices</h3>
                         <div id="rightchoice" class="text-white m-2 p-2"></div>
                     </div>
                 </div>
                 <div class="col-sm-6 mt-2">
                     <div class="row-sm-2 text-white border bg-dark p-2">
-                        <h1>Wrong Guess</h1>
+                        <h3>Wrong Guess</h3>
                         <div id="wrongchoice" class=" text-white m-2 p-2"></div>
                     </div>
                 </div>
@@ -137,7 +114,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
     <script src="./assets/javascript/game.js"></script>
-
+    
 </body>
 
 </html>
